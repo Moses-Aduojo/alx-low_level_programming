@@ -1,0 +1,19 @@
+#include "main.h"
+
+void print_alphabet(void)
+{
+	char s = 'A';
+
+	int i = 0;
+
+	while (i < 10)
+	{
+		while ( s <= 'Z')
+		{
+			_putchar(s - 'A' + 'a');
+			s++;
+		}
+		_putchar('\n');
+		i++;
+	}
+}
