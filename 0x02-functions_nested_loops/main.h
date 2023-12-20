@@ -22,4 +22,6 @@ int print_last_digit(int);
 
 int sum_of_multiples(void);
 
+int add(int, int);
+
 #endif
