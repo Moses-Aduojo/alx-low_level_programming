@@ -2,10 +2,11 @@
 
 /**
 *main - Entry point
-*sum_of_multiples - print sum of multiples of 3\
+*sum_of_multiples - Print sum of multiples of 3\
 *and 5 below 1024
 *Return: Always (0) success
 */
+
 
 int sum_of_multiples(void);
 
@@ -15,6 +16,13 @@ int main(void)
 	sum_of_multiples();
 	return (0);
 }
+
+
+/**
+ * sum_of_multiples - Print sum of multiples of 3 and 5 below 1024
+ *
+ * Return: The sum of multiples of 3 and 5 below 1024.
+ */
 
 int sum_of_multiples(void)
 {
