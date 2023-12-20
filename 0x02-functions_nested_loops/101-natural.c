@@ -1,5 +1,13 @@
 #include <stdio.h>
 
+int sum_of_multiples(void);
+
+
+int main(void)
+{
+	sum_of_multiples();
+	return(0);
+}
 
 int sum_of_multiples(void)
 {
