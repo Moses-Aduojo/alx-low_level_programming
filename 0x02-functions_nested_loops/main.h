@@ -2,6 +2,7 @@
 #define MAIN_H
 
 #include <unistd.h>
+#include <limits.h>
 
 int _putchar(char c);
 
