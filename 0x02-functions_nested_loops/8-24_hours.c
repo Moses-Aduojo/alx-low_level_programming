@@ -1,4 +1,9 @@
 #include <stdio.h>
+/**
+*jack_bauer - print every sec, min, and hrs in a day
+*Return: void
+*/
+
 void jack_bauer(void)
 {
 	int i = 0;
