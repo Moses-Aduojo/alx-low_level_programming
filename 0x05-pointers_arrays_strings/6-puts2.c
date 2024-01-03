@@ -15,7 +15,7 @@ void puts2(char *str)
 	i++;
 	str -= i; /*reset pointer to the begining of the string*/
 
-	for (j = 0; j < i; j += 2)
+	for (j = 0; j < i - 1; j += 2)
 		_putchar(str[j]);
 	_putchar('\n');
 }
