@@ -7,20 +7,20 @@
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-    char *ptr = dest;
-    int i;
+	char *ptr = dest;
+	int i;
 
-    for (i = 0; i < n && *src != '\0'; i++)
-    {
-        *ptr++ = *src++;
-    }
+	for (i = 0; i < n && *src != '\0'; i++)
+	{
+		*ptr++ = *src++;
+	}
 
-    while (i < n)
-    {
-        *ptr++ = '\0';
-        i++;
-    }
+	while (i < n)
+	{
+		*ptr++ = '\0';
+		i++;
+	}
 
-    return dest;
+	return (dest);
 }
 
