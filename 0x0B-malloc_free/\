@@ -1,0 +1,52 @@
+#include "main.h"
+
+/**
+ * str_concat - concatenate two string
+ * @s1: destination string
+ * @s2: destination string
+ * Return: pointer to the destination string
+ */
+char *str_concat(char *s1, char *s2)
+{
+	char *ptr1, *ptr2, *dest, *start;
+	int len1, len2;
+
+	if (s2 == NULL)
+                return (s1);
+
+	ptr2 = s2;
+	ptr1 = s1;
+	len1 = 0;
+	len2 = 0;
+	while (*ptr1 != '\0')
+	{
+		len1++;
+		ptr1++;
+	}
+	printf("%p\n", ptr2);
+	while (*ptr2 != '\0')
+	{
+		len2++;
+		ptr2++;
+	}
+
+	dest = (char *)malloc((len1 + len2 + 1) * sizeof(char));
+	start = dest;
+
+	if (dest == NULL)
+		return (NULL);
+	printf("%p\n", ptr2);
+	ptr2 -= len2;
+	printf("%p\n%p\n", ptr2, dest);
+	while ((*start++ = *ptr1++) != '\0')
+		;
+	*start = '\0';
+	start--;
+	while ((*start++ = *ptr2++) != '\0')
+		;
+
+	*start = '\0';
+	printf("%p\n%p\n", dest, start);
+	return (dest);
+
+}
