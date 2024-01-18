@@ -3,9 +3,9 @@
 
 /**
  * main - sum mumeric args recieced by this program
- * @arc: argument count
+ * @argc: argument count
  * @argv: argument vector
- * Reutrn: 0 on success, 1 otherwise
+ * Return: 0 on success, 1 otherwise
  */
 int main(int argc, char *argv[])
 {
@@ -16,6 +16,11 @@ int main(int argc, char *argv[])
 	{
 		printf("%d\n", 0);
 		return (0);
+	}
+	if (argc < 3)
+	{
+		printf("%s\n", "Error");
+		return (1);
 	}
 
 	for (i = 1; i < argc; i++)
