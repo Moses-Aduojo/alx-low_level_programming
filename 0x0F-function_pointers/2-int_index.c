@@ -1,3 +1,5 @@
+#include "function_pointers.h"
+
 /**
  * int_index - compare a number with element of an array
  * @array: pointer to the array
@@ -6,14 +8,12 @@
  * Return: index of the firs occurence in array if cmp evaluat to true
  * -1 otherwis
  */
-
-
 int int_index(int *array, int size, int (*cmp)(int))
 {
 	int i;
 
 	if (array == NULL || cmp == NULL)
-		exit(98);
+		return (-1);
 
 	if (size > 0)
 	{
