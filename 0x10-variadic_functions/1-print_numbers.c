@@ -18,6 +18,6 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		y = va_arg(ap, int);
 		printf("%d%s", y, (separator != NULL && i < n - 1) ? separator : "");
 	}
-	printf("%d\n", va_arg(ap, int));
+	printf("\n");
 	va_end(ap);
 }
