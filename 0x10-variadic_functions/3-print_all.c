@@ -1,4 +1,5 @@
 #include "variadic_functions.h"
+#define IF_NULL(x) do { if ((x) == NULL) return; } while (0)
 
 /**
  * print_all - function that prints anything
@@ -11,8 +12,7 @@ void print_all(const char * const format, ...)
 	int i;
 	char *str;
 
-	if (format == NULL)
-		return;
+	IF_NULL(format);
 	va_start(ap, format);
 	i = 0;
 	while (format[i] != '\0')
