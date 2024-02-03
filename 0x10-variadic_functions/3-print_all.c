@@ -1,5 +1,16 @@
 #include "variadic_functions.h"
-#define IF_NULL(x) do { if ((x) == NULL) return; } while (0)
+/*#define IF_NULL(x) do { if ((x) == NULL) return; } while (0)*/
+
+/**
+ * if_null - check if a pointer is null
+ * @str: pointer to a string
+ * Return: void
+ */
+void if_null(const char *str)
+{
+	if (str == NULL)
+		return;
+}
 
 /**
  * print_all - function that prints anything
@@ -12,7 +23,8 @@ void print_all(const char * const format, ...)
 	int i;
 	char *str;
 
-	IF_NULL(format);
+	/*IF_NULL(format);*/
+	if_null(format);
 	va_start(ap, format);
 	i = 0;
 	while (format[i] != '\0')
