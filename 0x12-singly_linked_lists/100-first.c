@@ -1,7 +1,10 @@
 #include <stdio.h>
 
 /**
- * before_main - Function to be executed before main.
+ * myStartupFun - Function to be executed before main.
+ *
+ * Description: This function is executed before the main function is called.
+ * It can be used for initialization or other setup tasks.
  */
 void __attribute__ ((constructor)) myStartupFun()
 {
