@@ -10,11 +10,13 @@ int create_file(const char *filename, char *text_content)
 {
 	int fd, no_char, is_closed;
 
-	if (text_content == NULL)
-	{
-		/*write(2, "empty text\n", 11);*/
-		return (-1);
-	}
+	/**
+	 * if (text_content == NULL)
+	 * {
+	 *	write(2, "empty text\n", 11);
+	 *	return (-1);
+	 * }
+	 */
 
 	if (filename == NULL)
 	{
