@@ -1,25 +1,22 @@
 #include "lists.h"
 
 /**
- * dlistint_len - find numbers elements of a doubly linked lists
+ * dlistint_len - find number of elements in a doubly linked list
  * @h: pointer to the list
- * Return: numbers of nodes
+ * Return: number of nodes
  */
 size_t dlistint_len(const dlistint_t *h)
 {
-	const dlistint_t *current = NULL;
-	size_t node_count = 0;
+    const dlistint_t *current = h;
+    size_t node_count = 0;
 
-	if (h == NULL)
-		return (node_count);
-	current = h;
-	while (current != NULL)
-	{
-		/* printf("%d\n", current->n);*/
-		current = current->next;
-		node_count++;
-	}
-	return (node_count);
+    while (current != NULL)
+    {
+        node_count++;
+        current = current->next;
+    }
+
+    return (node_count);
 }
 
 /**
@@ -30,17 +27,23 @@ size_t dlistint_len(const dlistint_t *h)
  */
 dlistint_t *insert(dlistint_t **h, int n)
 {
-	dlistint_t *temp = *h;
-	dlistint_t *new_node = NULL;
+    dlistint_t *temp = *h;
+    dlistint_t *new_node;
 
-	new_node = malloc(sizeof(dlistint_t));
-	if (new_node == NULL)
-		return (NULL);
-	new_node->n = n;
-	new_node->next = temp;
-	new_node->prev = temp->prev;
-	temp->prev->next = new_node;
-	return (new_node);
+    new_node = malloc(sizeof(dlistint_t));
+    if (new_node == NULL)
+        return (NULL);
+
+    new_node->n = n;
+    new_node->prev = temp->prev;
+    new_node->next = temp;
+
+    if (temp->prev != NULL)
+        temp->prev->next = new_node;
+
+    temp->prev = new_node;
+
+    return (new_node);
 }
 
 /**
@@ -52,36 +55,27 @@ dlistint_t *insert(dlistint_t **h, int n)
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *temp = *h;
-	unsigned int pos = 0;
-	dlistint_t *new_node;
-	size_t len = dlistint_len(temp);
+    dlistint_t *temp = *h;
+    unsigned int pos = 0;
+    size_t len = dlistint_len(temp);
+    dlistint_t *new_node;
 
-	if (idx > len)
-		return (NULL);
+    if (idx > len)
+        return (NULL);
 
-	if (len == 0)
-	{
-		new_node = add_dnodeint(h, n);
-		return (new_node);
-	}
+    if (len == 0 || idx == 0)
+        return (add_dnodeint(h, n));
 
-	while (pos <= idx)
-	{
-		if (temp->next == NULL)
-			pos++;
-		if (pos == idx)
-		{
-			if (pos == 0)
-				new_node = add_dnodeint(h, n);
-			else if (pos == len)
-				new_node = add_dnodeint_end(h, n);
-			else
-				new_node = insert(&temp, n);
-			return (new_node);
-		}
-		temp = temp->next;
-		pos++;
-	}
-	return (NULL);
+    if (idx == len)
+        return (add_dnodeint_end(h, n));
+
+    while (pos < idx)
+    {
+        temp = temp->next;
+        pos++;
+    }
+
+    new_node = insert(&temp, n);
+    return (new_node);
 }
+
